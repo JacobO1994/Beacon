@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<!-- Header -->
+<header style="background-color: #C2C5AA;" class="p-3 mb-3 border-bottom">
+    <div class="container">
+        <h1>Beacon 📍</h1>
+        <form action='/' method='POST' class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" name='location' class="form-control"
+                placeholder="Please enter a location you would like information for. ex: Paris, France"
+                aria-label="Search">
+        </form>
+    </div>
+</header>
+<!-- News -->
+<div name= "news" style = "text-align:center">
+    <h2>
+        Local news for {{loc}}
+    </h2>
+    {% for i in news %}
+    <li><a href = "{{ i.link }}">{{ i.title }}</a></li>
+    {% endfor %}
+</div>
+<!-- Weather -->
+<div name="weather" style = "text-align:center">
+    <h2>
+        Local weather for {{loc}}
+    </h2>
+</div>
+<!-- Map -->
+<div name="map" style = "text-align:center">
+    <h2>
+        Map of {{loc}}
+    </h2>
+    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src={{ src }}>
+    </iframe>
+</div>
+{% endblock %}
