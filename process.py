@@ -23,7 +23,7 @@ class Process:
         article_objects = []
         for a in articles:
             title = a['title']
-            url = a['url']
+            url = a['link']
             print(url)
             a_obj = Article(title, url)
             article_objects.append(a_obj)

@@ -24,7 +24,7 @@ flag = False
 if flag:
     _news = []
 else:
-    _news = requests.get("http://192.168.0.142:5001/news/" + _location).json()
+    _news = requests.get("https://news-microservice-361.herokuapp.com/news/" + _location).json()
     _news = p.clean_news(_news)
 
 # Base function of the application
@@ -36,7 +36,7 @@ def index():
         _location = request.form['location']
         try:
             # This is intended to hit the microservice endpoint for news data
-            _news = requests.get("http://192.168.0.142:5001/news/" + _location).json()
+            _news = requests.get("https://news-microservice-361.herokuapp.com/news/" + _location).json()
             _news = p.clean_news(_news)
             _coordinates = Geolocator.get_coordinates(_location)
             flag = True
