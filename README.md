@@ -1,2 +1,10 @@
 # Beacon
-Beacon is you web-based travel companion.
+Beacon is your web-based travel companion.
+
+# What you will need
+
+API Keys ( Current application is not in production )
+
+https://openweathermap.org/api
+
+https://newsapi.org/
