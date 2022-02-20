@@ -24,7 +24,6 @@ class Process:
         for a in articles:
             title = a['title']
             url = a['link']
-            print(url)
             a_obj = Article(title, url)
             article_objects.append(a_obj)
         return article_objects

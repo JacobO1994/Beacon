@@ -28,3 +28,30 @@
     position: fixed;
     bottom: 0;  
 }
+
+body {
+    background-color: #edede9;
+}
+
+
+.h2-loc{
+    color: #6c757d;
+}
+
+.loc {
+    color: #343a40;
+}  
+.typing-demo {
+    width: 42ch;
+    animation: typing 2s steps(22);
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: monospace;
+    font-size: 2em;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+}
+}

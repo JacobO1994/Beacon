@@ -33,6 +33,10 @@ def index():
     global _location, _news, flag, _coordinates
     _weather_src = f"https://api.openweathermap.org/data/2.5/onecall?lat={_coordinates[0]}&lon={_coordinates[1]}&appid={api_keys['open_weather_key']}&units=metric"
     if request.method == 'POST':
+        
+        if request.form.get('map-redir') == 'Go to Map':
+            return redirect(f"https://maps-api-microservice.herokuapp.com/place?city={_location}", code=302)
+            
         _location = request.form['location']
         try:
             # This is intended to hit the microservice endpoint for news data

@@ -6,8 +6,12 @@
 {% block body %}
 <!-- Header -->
 <header class="p-3 mb-3 border-bottom">
-    <div><h1>Beacon</h1></div>
-    <div><p>A single search to get all the data you need.</p></div>
+    <div class="Beacon"><h1>Beacon</h1></div>
+    <div class="wrapper">
+        <div class="typing-demo">
+          Your journey begins with a single search.
+        </div>
+    </div>
     <div class="container">
         <form action='/' method='POST' class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
             <input type="search" name='location' class="form-control"
@@ -20,20 +24,24 @@
 <div class = "row">
     <div class="column">
         <!-- News -->
-        <div class= "news" name= "news">
-            <h2>
-                Local news for {{loc}}
+        <div>
+            <h2 class="h2-loc">
+                Local news for <span class="loc">{{loc}}</span>
             </h2>
-            {% for i in news %}
-            <li><a href = "{{ i.link }}">{{ i.title }}</a></li>
-            {% endfor %}
+            <div class = "news-articles" style="text-align: left;">
+                <ul style="list-style-type:none;">
+                    {% for i in news %}
+                    <li><a href = "{{ i.link }}">{{ i.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
     <div class="column">
         <!-- Weather -->
         <div class="weather" name="weather">
-            <h2>
-                Local weather for {{loc}}
+            <h2 class="h2-loc">
+                Local weather for <span class="loc">{{loc}}</span>
             </h2>
             <h6>Current Temperature: {{weather.current_temp}}C</h6>
             <h6>Feels Like Temperature: {{weather.feels_like_temp}}C</h6>
@@ -43,11 +51,15 @@
     <div class="column">
         <!-- Map -->
         <div class = "map" name="map">
-            <h2>
-                Map of {{loc}}
+            <h2 class="h2-loc">
+                Map of <span class="loc">{{loc}}</span>
             </h2>
             <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src={{ src }}>
             </iframe>
+            <p>Need a better view? Click below to view a larger map!</p>
+            <form method="post" action="/">
+                <input type="submit" value="Go to Map" name="map-redir"/>
+            </form>
         </div>
     </div>
     <div class="footer">
