@@ -13,7 +13,7 @@ with open('keys.yml', 'r') as file:
 # =========== Globals w/ Started Data ======================
 weather = Weather()
 _location = 'Paris, France'
-_map_src = f"https://www.google.com/maps/embed/v1/place?key={api_keys['google_maps_embed_key']}&q="
+_map_src = f"https://www.google.com/maps/embed/v1/place?key={api_keys['google_maps_embed_key']}&q=city="
 _news = []
 _coordinates = Geolocator.get_coordinates(_location)
 

@@ -26,7 +26,6 @@ class Process:
             title = a['title']
             url = a['link']
             img = a['media']
-            print(img)
             a_obj = Article(title, url, img)
             article_objects.append(a_obj)
         return article_objects

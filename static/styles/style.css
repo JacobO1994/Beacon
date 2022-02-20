@@ -11,6 +11,7 @@ header {
     text-align: center;
     font-weight: bold;
 }
+
 .column {
     float: left;
     width: 33.33%;
@@ -35,12 +36,10 @@ header {
 }
 
 .footer{
-    color: #C2D3CD;
+    color: #E09F3E;
     text-align: center;
     margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    bottom: 0;  
+    margin-right: auto; 
 }
 
 body {
