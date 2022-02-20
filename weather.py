@@ -9,8 +9,10 @@ class Weather:
         self.icon = None
 
     def get_weather(self, url):
+        """
+        Grabs weather data from the openweather api url.
+        """
         data = requests.get(url).json()['current']
-        print(data)
         self.current_temp = data['temp']
         self.feels_like_temp = data['feels_like']
         self.wind = data['wind_speed']
