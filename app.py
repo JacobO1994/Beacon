@@ -17,7 +17,8 @@ _location = 'Paris, France'
 _map_src = f"https://www.google.com/maps/embed/v1/place?key={api_keys['google_maps_embed_key']}&q="
 _news = []
 _coordinates = Geolocator.get_coordinates(_location)
-_weather_src = f"https://api.openweathermap.org/data/2.5/onecall?lat={_coordinates[0]}&lon={_coordinates[1]}&appid={api_keys['open_weather_key']}&units=metric"
+# _weather_src = f"https://api.openweathermap.org/data/2.5/onecall?lat={_coordinates[0]}&lon={_coordinates[1]}&appid={api_keys['open_weather_key']}&units=metric"
+
 
 # Flag denoting if we have progressed past starter data
 flag = False
@@ -32,6 +33,7 @@ else:
 def index():
     global _location, _news, flag, _coordinates
     _weather_src = f"https://api.openweathermap.org/data/2.5/onecall?lat={_coordinates[0]}&lon={_coordinates[1]}&appid={api_keys['open_weather_key']}&units=metric"
+    _weather_map = f"https://openweathermap.org/weathermap?basemap=map&cities=true&layer=precipitation&lat={int(_coordinates[0])}&lon={int(_coordinates[1])}&zoom=6"
     if request.method == 'POST':
         
         if request.form.get('map-redir') == 'Go to Map':
@@ -52,7 +54,7 @@ def index():
         src = _map_src + loc
         news = _news
         weather.get_weather(_weather_src)
-        return render_template('index.html', loc = loc, src = src, news = news[:5], weather=weather)
+        return render_template('index.html', loc = loc, src = src, news = news[:5], weather=weather, wm = _weather_map)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5002)

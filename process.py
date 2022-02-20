@@ -1,8 +1,9 @@
 class Article:
 
-    def __init__(self, title, link):
+    def __init__(self, title, link, img):
         self.title = title
         self.link = link
+        self.img = img
 
 class Process:
     """
@@ -24,6 +25,8 @@ class Process:
         for a in articles:
             title = a['title']
             url = a['link']
-            a_obj = Article(title, url)
+            img = a['media']
+            print(img)
+            a_obj = Article(title, url, img)
             article_objects.append(a_obj)
         return article_objects

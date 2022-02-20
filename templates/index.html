@@ -7,6 +7,7 @@
 <!-- Header -->
 <header class="p-3 mb-3 border-bottom">
     <div class="Beacon"><h1>Beacon</h1></div>
+    <br>
     <div class="wrapper">
         <div class="typing-demo">
           Your journey begins with a single search.
@@ -24,14 +25,17 @@
 <div class = "row">
     <div class="column">
         <!-- News -->
-        <div>
+        <div class="news">
             <h2 class="h2-loc">
                 Local news for <span class="loc">{{loc}}</span>
             </h2>
-            <div class = "news-articles" style="text-align: left;">
+            <br>
+            <div class = "news-articles">
                 <ul style="list-style-type:none;">
                     {% for i in news %}
+                    <img src="{{ i.img }}" alt="Not Found" onerror=this.src="https://images.unsplash.com/photo-1610513320995-1ad4bbf25e55?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="news-img">
                     <li><a href = "{{ i.link }}">{{ i.title }}</a></li>
+                    <br>
                     {% endfor %}
                 </ul>
             </div>
@@ -43,9 +47,16 @@
             <h2 class="h2-loc">
                 Local weather for <span class="loc">{{loc}}</span>
             </h2>
-            <h6>Current Temperature: {{weather.current_temp}}C</h6>
-            <h6>Feels Like Temperature: {{weather.feels_like_temp}}C</h6>
-            <h6>Wind: {{weather.wind}}metre/sec</h6>
+            <br>
+            <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@4x.png">
+            <h4>Current Temperature</h6>
+            <h6>{{weather.current_temp}} C</h6>
+            <h4>Feels Like Temperature</h6>
+            <h6>{{weather.feels_like_temp}} C</h6>
+            <h4>Wind</h6>
+            <h6>{{weather.wind}} metre/sec</h6>
+            <br>
+            <embed src="{{ wm }}" style="width:500px; height: 300px;">
         </div>
     </div>
     <div class="column">
@@ -54,6 +65,7 @@
             <h2 class="h2-loc">
                 Map of <span class="loc">{{loc}}</span>
             </h2>
+            <br>
             <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen src={{ src }}>
             </iframe>
             <p>Need a better view? Click below to view a larger map!</p>
@@ -62,6 +74,7 @@
             </form>
         </div>
     </div>
+    <br><br><br>
     <div class="footer">
         <div class="typewriter"">
             <p>Made with ☕️ in Ann Arbor, MI by <a href="https://www.linkedin.com/in/jakeogle/">Jacob Ogle</a></p>
