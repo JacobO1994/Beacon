@@ -23,6 +23,7 @@ if flag:
     _news = []
 else:
     _news = requests.get("https://news-microservice-361.herokuapp.com/news/" + _location).json()
+    print(_news)
     _news = p.clean_news(_news)
 
 # =========== Flask Starter ================================
@@ -65,4 +66,4 @@ def index():
 
 # Run the application
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002)
+    app.run(debug=True)
