@@ -5,6 +5,7 @@ import requests
 import yaml
 from geolocator import Geolocator
 from weather import Weather
+import time
 
 # ============ Loading API keys ============================
 with open('keys.yml', 'r') as file:
@@ -22,8 +23,8 @@ flag = False
 if flag:
     _news = []
 else:
+    time.sleep(1)
     _news = requests.get("https://news-microservice-361.herokuapp.com/news/" + _location).json()
-    print(_news)
     _news = p.clean_news(_news)
 
 # =========== Flask Starter ================================
@@ -66,4 +67,4 @@ def index():
 
 # Run the application
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80)
